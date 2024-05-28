@@ -30,7 +30,7 @@ class ProductController extends Controller
         // Retrieve card details from the request
         
         // Set the Stripe API key
-        \Stripe\Stripe::setApiKey("sk_test_51PLJq8SJ4FxbxwlxDBpauVKmQPl6AqDcRK7UjjkITu8EGtkOiogvv8sbAQmGmh2E7IgrwgxxF6bbsy5pYPWgePtr00YDOu7is8");
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     
         try {
     
@@ -47,7 +47,7 @@ class ProductController extends Controller
             ]);
    
             // Redirect to a thank you page
-            return redirect()->route('thankyou',compact($charge));
+            return redirect()->route('thankyou');
         } catch (\Stripe\Exception\InvalidRequestException $e) {
             // Handle the exception (e.g., display an error message to the user)
             return back()->with('error', $e->getMessage());

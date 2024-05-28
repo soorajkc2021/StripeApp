@@ -36,7 +36,7 @@
 @section('scripts')
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        var key = 'pk_test_51PLJq8SJ4Fxbxwlxfbk6NugPAQP0oUvhZcoFDYoCla2ezx99rSoiNDp0gbC2gPdXb511YXtMD077kYCiHsBXXGO300nKhUzxZ2';
+        var key = '{{ env('STRIPE_KEY') }}';
 
         var stripe = Stripe(key);
         
